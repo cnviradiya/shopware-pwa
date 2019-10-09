@@ -1,16 +1,16 @@
-export interface iTag {
+export interface Tag {
   id: string
   name: string
 }
 
-export interface iPromotion {
+export interface Promotion {
 
 }
 
-export interface iCustomField {
+export interface CustomField {
 
 }
 
-export interface iExtension {
+export interface Extension {
 
 }

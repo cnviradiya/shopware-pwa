@@ -1,40 +1,11 @@
-import { iProductReview } from '../product/Review';
-import { iPaymentMethod } from '../checkout/Payment';
-import { iBillingAddress, iShippingAddress, iCustomerAddress } from './Address';
-import { iTag, iPromotion, iCustomField, iExtension } from '../Common';
+import { ProductReview } from '../product/Review';
+import { PaymentMethod } from '../checkout/Payment';
+import { BillingAddress, ShippingAddress, CustomerAddress } from './Address';
+import { Tag, Promotion, CustomField, Extension } from '../Common';
+import { CustomerGroup } from './CustomerGroup';
+import { OrderCustomer } from './OrderCustomer';
 
-interface iCustomerGroup {
-  id: string
-  name: string
-  display_gross: boolean
-  customFields: any
-}
-
-interface iOrderCustomer {
-  email: string
-  orderId: string,
-  salutationId: string,
-  firstName: string,
-  lastName: string,
-  title: string | null,
-  company: string | null,
-  customerNumber: number,
-  customerId: string,
-  customer: string | null,
-  salutation: string | null,
-  order: string | null,
-  customFields: iCustomField,
-  _uniqueIdentifier: string,
-  versionId: string,
-  translated: [],
-  createdAt: Date,
-  updatedAt: Date | null,
-  extensions: any
-  id: string,
-  orderVersionId: string
-}
-
-export interface iCustomer {
+export interface Customer {
   id: string
   groupId: string
   defaultPaymentMethodId: string
@@ -60,21 +31,21 @@ export interface iCustomer {
   orderCount: number
   createdAt: Date
   updatedAt: Date
-  group: iCustomerGroup
-  defaultPaymentMethod: iPaymentMethod
-  defaultBillingAddress: iBillingAddress
-  defaultShippingAddress: iShippingAddress
-  activeBillingAddress: iBillingAddress
-  activeShippingAddress: iShippingAddress
-  addresses: Array<iCustomerAddress>
-  orderCustomers: iOrderCustomer | null
+  group: CustomerGroup
+  defaultPaymentMethod: PaymentMethod
+  defaultBillingAddress: BillingAddress
+  defaultShippingAddress: ShippingAddress
+  activeBillingAddress: BillingAddress
+  activeShippingAddress: ShippingAddress
+  addresses: Array<CustomerAddress>
+  orderCustomers: Array<OrderCustomer> | null
   autoIncrement: number
-  tags: Array<iTag> | null
-  promotions: Array<iPromotion> | null
-  customFields: Array<iCustomField> | null
-  productReviews: Array<iProductReview>
+  tags: Array<Tag> | null
+  promotions: Array<Promotion> | null
+  customFields: Array<CustomField> | null
+  productReviews: Array<ProductReview>
   _uniqueIdentifier: string
   versionId: string | null
   translated: any
-  extensions: Array<iExtension>
+  extensions: Array<Extension>
 }

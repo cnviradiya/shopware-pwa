@@ -1,10 +1,10 @@
-import { iCustomField } from "../Common";
+import { CustomField } from "../Common";
 
-interface iCountryState {
+interface CountryState {
 
 }
 
-interface iCountry {
+export interface Country {
   id: string
   name: string
   position: number
@@ -15,7 +15,7 @@ interface iCountry {
   iso3: string
   displayStateInRegistration: boolean
   forceStateInRegistration: boolean
-  states: Array<iCountryState> | null
+  states: CountryState[] | null
   translations: any
   customFields: null
   _uniqueIdentifier: string
@@ -26,7 +26,7 @@ interface iCountry {
   extensions: any
 }
 
-export interface iCustomerAddress {
+export interface CustomerAddress {
   customerId: string
   countryId: string
   countryStateId: string | null
@@ -43,18 +43,18 @@ export interface iCustomerAddress {
   phoneNumber: string | null
   additionalAddressLine1: string
   additionalAddressLine2: string
-  country: iCountry
+  country: Country
   countryState: string
   salutation: string
   customer: string
-  customFields: iCustomField
+  customFields: CustomField
 
 }
 
-export interface iBillingAddress extends iCustomerAddress {
+export interface BillingAddress extends CustomerAddress {
   
 }
 
-export interface iShippingAddress extends iCustomerAddress {
+export interface ShippingAddress extends CustomerAddress {
   
 }
